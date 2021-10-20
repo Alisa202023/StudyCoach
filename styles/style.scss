@@ -1,0 +1,117 @@
+@import "fonts";
+*{
+  box-sizing: border-box;
+}
+body{
+  font-family: "RobotoMedium";
+}
+h1,h3{
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+}
+h1{
+  font-size: 50px;
+  color:#1D0073;
+}
+h3{
+  font-size: 36px;
+  color:#1D0073;
+  font-family: "Roboto";
+}
+.container{
+  margin:0 30px;
+  
+}
+.header{
+  display: flex;
+  justify-content: space-between;
+  max-width:100%;
+  font-family: "RobotoMedium";
+
+  &__logo{
+    font-family: "Spicy";
+    font-size: 48px;
+    white-space: nowrap;
+
+    &-red{
+      color:#7B0B2D;
+    }
+
+    &-blue{
+      color:#1D0073;
+    }
+  }
+
+  &__menu{
+    max-width: 430px;
+    width:100%;
+   
+    ul{
+      display: flex;
+      justify-content: space-between;
+      color:#1D0073;
+      font-size: 20px;
+      list-style-type: none;
+    }
+
+    li{
+      list-style-type: none;
+    }
+  }
+
+  &__buttons{
+    max-width: 340px;
+    width:100%;
+
+    &-signIn, &-signUp{
+      border-radius: 10px;
+      max-width: 152px;
+      width:100%; 
+      border:none;
+      font-size: 20px;
+      padding:14px 35px;
+      font-family: "RobotoMedium";
+    }
+    &-signIn{
+      background: none;
+      color:#7B0B2D;
+    }
+
+    &-signUp{
+      box-shadow: 0px 5px 5px 5px rgba(29, 0, 115, 0.05);
+      background-color: #1D0073;
+      color:#fff;
+    }
+  }
+}
+.main{
+  display: flex;
+  justify-content: space-between;
+  &__description{
+    max-width: 596px;
+    margin-top: 202px;
+    h1,h3{
+      margin-bottom: 32px;
+    }
+    button{
+      background-color: #7B0B2D;
+      box-shadow: 0px 5px 5px 5px rgba(29, 0, 115, 0.05);
+      border-radius: 10px;
+      color:#fff;
+      max-width: 230px;
+      width:100%; 
+      border:none;
+      font-size: 24px;
+      padding:13px 67px;
+      font-family: "RobotoMedium";
+    }
+  }
+
+  &__image {
+    margin-top: 83px;
+    img{
+      max-width: 100%;
+    }
+  }
+  
+}

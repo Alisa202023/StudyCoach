@@ -1,0 +1,168 @@
+@font-face {
+  font-family: RobotoMedium;
+  font-weight: 600;
+  font-style: normal;
+  src: url(../fonts/Robotomedium.woff2), url(../fonts/Robotomedium.woff);
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Roboto;
+  font-weight: 700;
+  font-style: normal;
+  src: url(../fonts/Roboto.woff2), url(../fonts/Roboto.woff);
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Spicy;
+  font-weight: 700;
+  font-style: normal;
+  src: url(../fonts/SpicyRice-Regular.ttf);
+  font-display: swap;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: "RobotoMedium";
+}
+
+h1, h3 {
+  -webkit-margin-before: 0em;
+          margin-block-start: 0em;
+  -webkit-margin-after: 0em;
+          margin-block-end: 0em;
+}
+
+h1 {
+  font-size: 50px;
+  color: #1D0073;
+}
+
+h3 {
+  font-size: 36px;
+  color: #1D0073;
+  font-family: "Roboto";
+}
+
+.container {
+  margin: 0 30px;
+}
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  max-width: 100%;
+  font-family: "RobotoMedium";
+}
+
+.header__logo {
+  font-family: "Spicy";
+  font-size: 48px;
+  white-space: nowrap;
+}
+
+.header__logo-red {
+  color: #7B0B2D;
+}
+
+.header__logo-blue {
+  color: #1D0073;
+}
+
+.header__menu {
+  max-width: 430px;
+  width: 100%;
+}
+
+.header__menu ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: #1D0073;
+  font-size: 20px;
+  list-style-type: none;
+}
+
+.header__menu li {
+  list-style-type: none;
+}
+
+.header__buttons {
+  max-width: 340px;
+  width: 100%;
+}
+
+.header__buttons-signIn, .header__buttons-signUp {
+  border-radius: 10px;
+  max-width: 152px;
+  width: 100%;
+  border: none;
+  font-size: 20px;
+  padding: 14px 35px;
+  font-family: "RobotoMedium";
+}
+
+.header__buttons-signIn {
+  background: none;
+  color: #7B0B2D;
+}
+
+.header__buttons-signUp {
+  -webkit-box-shadow: 0px 5px 5px 5px rgba(29, 0, 115, 0.05);
+          box-shadow: 0px 5px 5px 5px rgba(29, 0, 115, 0.05);
+  background-color: #1D0073;
+  color: #fff;
+}
+
+.main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.main__description {
+  max-width: 596px;
+  margin-top: 202px;
+}
+
+.main__description h1, .main__description h3 {
+  margin-bottom: 32px;
+}
+
+.main__description button {
+  background-color: #7B0B2D;
+  -webkit-box-shadow: 0px 5px 5px 5px rgba(29, 0, 115, 0.05);
+          box-shadow: 0px 5px 5px 5px rgba(29, 0, 115, 0.05);
+  border-radius: 10px;
+  color: #fff;
+  max-width: 230px;
+  width: 100%;
+  border: none;
+  font-size: 24px;
+  padding: 13px 67px;
+  font-family: "RobotoMedium";
+}
+
+.main__image {
+  margin-top: 83px;
+}
+
+.main__image img {
+  max-width: 100%;
+}
+/*# sourceMappingURL=style.css.map */
