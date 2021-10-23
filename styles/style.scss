@@ -5,113 +5,264 @@
 body{
   font-family: "RobotoMedium";
 }
+h1{
+  font-size: 32px;
+  color:#1D0073;
+}
+h2{
+  font-size: 48px;
+  font-family: "Roboto";
+}
+h3{
+  font-size: 24px;
+  font-family: "Roboto";
+}
 h1,h3{
   margin-block-start: 0em;
   margin-block-end: 0em;
 }
-h1{
-  font-size: 50px;
-  color:#1D0073;
-}
-h3{
-  font-size: 36px;
-  color:#1D0073;
+p{
+  font-size: 24px;
   font-family: "Roboto";
+  line-height: 130%;
+}
+button{
+  border-radius: 10px;
+  width:100%; 
+  border:none;
+  font-family: "RobotoMedium";
+}
+img{
+  max-width: 100%;
 }
 .container{
-  margin:0 30px;
-  
+  margin:0 5px;
 }
 .header{
   display: flex;
   justify-content: space-between;
   max-width:100%;
+  height:65px;
   font-family: "RobotoMedium";
 
   &__logo{
     font-family: "Spicy";
     font-size: 48px;
     white-space: nowrap;
-
+    a, a:hover, a:focus{
+      text-decoration: none;
+    }
     &-red{
       color:#7B0B2D;
     }
-
     &-blue{
       color:#1D0073;
     }
   }
-
   &__menu{
+    display: none;
     max-width: 430px;
     width:100%;
    
     ul{
-      display: flex;
-      justify-content: space-between;
+      align-items: center;
       color:#1D0073;
+      display: flex;
       font-size: 20px;
+      justify-content: space-between;
+      height: 65px;
       list-style-type: none;
+      padding-inline-start: 0;     
     }
-
     li{
       list-style-type: none;
+      &:hover{
+        color:#7B0B2D;
+        cursor: pointer;
+      }
     }
   }
 
   &__buttons{
+    align-items: center;
+    display: flex;
+    justify-content: center;
     max-width: 340px;
     width:100%;
 
-    &-signIn, &-signUp{
-      border-radius: 10px;
+    button{
       max-width: 152px;
-      width:100%; 
-      border:none;
       font-size: 20px;
       padding:14px 35px;
-      font-family: "RobotoMedium";
-    }
-    &-signIn{
-      background: none;
-      color:#7B0B2D;
-    }
-
-    &-signUp{
-      box-shadow: 0px 5px 5px 5px rgba(29, 0, 115, 0.05);
-      background-color: #1D0073;
-      color:#fff;
     }
   }
 }
 .main{
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
+  margin-bottom: 80px;
+
   &__description{
     max-width: 596px;
-    margin-top: 202px;
+    margin-top: 60px;
+
     h1,h3{
       margin-bottom: 32px;
+      color:#1D0073;
     }
     button{
-      background-color: #7B0B2D;
-      box-shadow: 0px 5px 5px 5px rgba(29, 0, 115, 0.05);
-      border-radius: 10px;
-      color:#fff;
       max-width: 230px;
-      width:100%; 
-      border:none;
       font-size: 24px;
       padding:13px 67px;
-      font-family: "RobotoMedium";
     }
   }
 
   &__image {
     margin-top: 83px;
-    img{
-      max-width: 100%;
+  }
+  
+}
+.aboutUs{
+  &__item{
+    align-items: center;
+    display: flex;
+    
+    flex-direction: column;
+    justify-content: space-between;
+    margin:0 auto;
+    width:80%;   
+
+    .itemDesc{
+      max-width: 630px;
+      width:100%;
+    
+      
+      h3,p{
+        text-align: center;
+      }
+      h3{
+        color:#7B0B2D;
+        margin-bottom: 30px;
+      }
+      p{
+        color:#281E1E;
+      }
+    }
+    .itemImg{
+      order:1;
+    }
+  }
+}
+.courses{
+  margin-top: 80px;
+  background-image: url(../img/background2.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  padding-bottom: 100px;
+  h2{
+    color:#FBCABA;    
+    margin-top: 120px;
+  }
+  h3{
+    color:#EDEFFE;
+    margin-top: 35px;
+  }
+  h2,h3{
+    text-align: center;
+  }
+  a h2:hover{
+    color:#a88ef2;
+    transition: 0.2s ease-in-out;
+  }
+  a, a:hover, a:focus{
+    text-decoration: none;
+  }
+  &__items{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    padding:0 30px;
+    text-align: center;
+    margin:auto;
+    
+  }
+  
+  &__item{
+    max-width: 428px;
+    width:100%;
+    padding:20px 15px;
+    a{
+      display: block;
+    }
+    .itemImg{
+      display: inline-block;
+      img{
+        height:230px;
+        display: block;
+        transition:1s;
+        z-index: 2;      
+      }
+    }
+    :hover>.itemImg img{
+      transform:scale(1.2);
+    }
+    :hover>h3{
+      color:#FBCABA;
     }
   }
   
+}
+
+@media screen and (min-width: 768px) {
+  h1{
+    font-size: 50px;
+  }
+  h3{
+    font-size: 48px;
+  }
+  .container{
+    margin:0 30px;
+  }
+  .main{
+    &__description{
+      margin-top: 202px;
+    }
+  }
+  .header{
+    &__menu{
+      display: block;
+    }
+  }
+  .aboutUs{
+    &__item{
+      flex-direction: row;
+    }
+    .itemImg{
+     order:initial;
+    }
+  }
+  .courses{
+    &__item {
+        width: 50%;
+    }
+    &__items{
+      justify-content: space-between;
+      margin-left: -15px;
+      margin-right: -15px;
+    }
+  }
+  .main{
+    flex-direction: row;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .courses{
+    &__item {
+        width: 31.33%;
+    }
+  }
 }

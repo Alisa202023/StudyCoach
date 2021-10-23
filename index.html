@@ -5,14 +5,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/mui.css">
   <title>StudyCoach</title>
 </head>
 <body>
   <header>
     <div class="header container">
       <div class="header__logo">
-        <span class="header__logo-blue">Study</span>
-        <span class="header__logo-red">Coach</span>
+        <a href="#"><span class="header__logo-blue">Study</span>
+          <span class="header__logo-red">Coach</span></a>
+       
       </div>
       <div class="header__menu">
         <nav>
@@ -24,8 +26,8 @@
         </nav>
       </div>
       <div class="header__buttons">
-        <button class="header__buttons-signIn">Sign In</button>
-        <button class="header__buttons-signUp">Sign Up</button>
+        <button class="mui-btn mui-btn--darkRed">Sign In</button>
+        <button class="mui-btn mui-btn--darkViolet">Sign Up</button>
       </div>
     </div>
   </header>
@@ -34,17 +36,101 @@
       <div class="main__description">
         <h1>Learn new things together with proffesional teachers</h1>
         <h3>Find yourself</h3>
-        <button>Get Start</button>
+        <button class="mui-btn mui-btn--darkRedBack">Get Start</button>
       </div>
       <div class="main__image"><img src="img/background.png" alt="background"></div>
     </section>
-    <section class="aboutUs"></section>
-    <section class="courses"></section>
+    <section class="aboutUs ">
+      <div class="aboutUs__item">
+        <div class="itemImg"><img src="img/learning.png" alt="learn"></div>
+        <div class="itemDesc itemDesc-pos">
+          <h3>Learning by doing</h3>
+          <p>From the very beginning, we teach you to work independently to solve problems that are close to real ones. Also, very interesting tasks with clear examples are waiting for you.</p>
+        </div>
+      </div>
+      <div class="aboutUs__item">
+        <div class="itemDesc">
+          <h3>From beginner to professional</h3>
+          <p>We have professional programs where, under the guidance of a personal mentor, you will gain skills and experience in the chosen direction.</p>
+        </div>
+        <div class="itemImg"><img src="img/beginner.png" alt="begin"></div>
+      </div>
+    </section>
+    <section class="courses">
+      <a href="#"><h2>Courses</h2></a>
+      <div class="courses__items">
+        <div class="courses__item">
+          <a href="#">
+            <div class="itemImg">
+              <img src="img/courses/1.png" alt="coding">
+            </div>
+            <h3>Coding</h3>
+          </a>          
+        </div>
+        <div class="courses__item">
+          <a href="#">
+            <div class="itemImg">
+              <img src="img/courses/2.png" alt="designer">
+            </div>
+            <h3>Designer</h3>
+          </a> 
+        </div>
+        <div class="courses__item">
+          <a href="#">
+            <div class="itemImg">
+              <img src="img/courses/3.png" alt="Marketing">
+            </div>
+            <h3>Marketing</h3>
+          </a> 
+        </div>
+        <div class="courses__item">
+          <a href="#">
+            <div class="itemImg">
+              <img src="img/courses/4.png" alt="Management">
+            </div>
+            <h3>Management</h3>
+          </a>
+        </div>
+        <div class="courses__item">
+          <a href="#">
+            <div class="itemImg">
+              <img src="img/courses/5.png" alt="Analitics">
+            </div>
+            <h3>Analitics</h3>
+          </a>
+        </div>
+        <div class="courses__item">
+          <a href="#">
+            <div class="itemImg">
+              <img src="img/courses/6.png" alt="Developer games">
+            </div>
+            <h3>Developer games</h3>
+          </a>
+        </div>
+        <div class="courses__item">
+          <a href="#">
+            <div class="itemImg">
+              <img src="img/courses/7.png" alt="Creative">
+            </div>
+            <h3>Creative</h3>
+          </a>
+        </div>
+        <div class="courses__item">
+          <a href="#">
+            <div class="itemImg">
+              <img src="img/courses/8.png" alt="Business">
+            </div>
+            <h3>Business</h3>
+          </a>
+        </div>
+      </div>
+    </section>
     <section class="reviews"></section>
     <section class="advantages"></section>
     <section class="details"></section>
   </main>
   <footer></footer>
   <script src="js/main.js"></script>
+  <script src="js/mui.min.js"></script>
 </body>
 </html>
