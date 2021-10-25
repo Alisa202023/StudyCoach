@@ -1984,7 +1984,7 @@ abbr[title] {
 }
 .mui-textfield > input:focus,
 .mui-textfield > textarea:focus {
-  border-color: #2196F3;
+  border-color: #7B0B2D;
   border-width: 2px;
 }
 .mui-textfield > input:-moz-read-only, .mui-textfield > textarea:-moz-read-only {
@@ -2030,7 +2030,7 @@ abbr[title] {
 }
 
 .mui-textfield > textarea {
-  min-height: 64px;
+  min-height: 320px;
 }
 .mui-textfield > textarea[rows]:not([rows="2"]):focus {
   margin-bottom: -1px;

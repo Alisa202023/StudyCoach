@@ -14,16 +14,18 @@
       <div class="header__logo">
         <a href="#"><span class="header__logo-blue">Study</span>
           <span class="header__logo-red">Coach</span></a>
-       
       </div>
       <div class="header__menu">
-        <nav>
-          <ul>
-            <li>About</li>
-            <li>Courses</li>
-            <li>Contacts</li>
-          </ul>
-        </nav>
+        <div class="menu">
+          <div class="menu-button"><span class=""></span></div>
+          <nav>
+            <ul>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Courses</a></li>
+              <li><a href="#">Contacts</a></li>
+            </ul>
+          </nav>
+        </div>
       </div>
       <div class="header__buttons">
         <button class="mui-btn mui-btn--darkRed">Sign In</button>
@@ -125,11 +127,87 @@
         </div>
       </div>
     </section>
-    <section class="reviews"></section>
-    <section class="advantages"></section>
-    <section class="details"></section>
+    <section class="reviews">
+      <a href="#"><h2>Reviews</h2></a>
+      <div class="reviews__block">
+        <div class="reviews__img"><img src="img/reviews.png" alt="reviews"></div>
+        <div class="reviews__items">
+          <div class="reviews__item">
+            <div class="reviews__item-title">
+              <img src="img/reviews/1.png" alt="reviews1">
+              <span>Alexandra</span>
+            </div>
+            <div class="reviews__item-desc">
+              <p>The course as a whole is not bad, everything changes quickly, the course is not always kept up to date.</p>
+            </div>
+          </div>
+          <div class="reviews__item">
+            <div class="reviews__item-title">
+              <img src="img/reviews/2.png" alt="reviews2">
+              <span>Svetlana</span>
+            </div>
+            <div class="reviews__item-desc">
+              <p>The course as a whole is not bad, everything changes quickly, the course is not always kept up to date.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </section>
+    <section class="advantages">
+      <a href="#"><h2>Our Advantages</h2></a>
+      <div class="advantages__block">
+        <div class="advantages__items">
+          <div class="advantages__item">
+            <div class="advantages__item-title"><h3>Support at all stages</h3></div>
+            <div class="advantages__items-dec"><p>Our experts will help you understand the program, answer questions about homework, solve any technical difficulties and make sure that you feel comfortable studying</p></div>
+          </div>
+          <div class="advantages__item">
+            <div class="advantages__item-title"><h3>Teachers - practitioners</h3></div>
+            <div class="advantages__items-dec"><p>You will be taught by experts from different companies. They will share experiences and techniques that help them in their work every day.</p></div>
+          </div>
+        </div>
+        <div class="advantages__img"><img src="img/Advantages.png" alt="advantages"></div>
+      </div>
+    </section>
+    <section class="details">
+      <a href="#"><h2>Get details</h2></a>
+      <p>if you have not found an answer to your question, fill out the form, and we will answer as soon as possible</p>
+      <div class="details__item">
+        <div class="details__item-img"><img src="img/Details.png" alt="detailss"></div>
+        <div class="details__item-form">
+          <form class="mui-form">
+            <div class="mui-textfield">
+              <input type="text" placeholder="Name">
+            </div>
+            <div class="mui-textfield">
+              <input type="text" placeholder="Email">
+            </div>
+            <div class="mui-textfield">
+              <textarea placeholder="Your question"></textarea>
+            </div>
+            <button type="submit" class="mui-btn mui-btn--darkRedBack">Submit</button>
+          </form>
+        </div>
+      </div>
+    </section>
   </main>
-  <footer></footer>
+  <footer>
+    <div class="header__logo">
+      <a href="#"><span class="header__logo-blue">Study</span>
+        <span class="header__logo-red">Coach</span></a>
+    </div>
+    <div class="links">
+      <nav>
+        <ul>
+          <li><a href="#"><img src="img/links/ic_facebook.svg" alt="facebook"></a></li>
+          <li><a href="#"><img src="img/links/ic_instagram.svg" alt="instagram"></a></li>
+          <li><a href="#"><img src="img/links/ic_twitter.svg" alt="twitter"></a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="js/main.js"></script>
   <script src="js/mui.min.js"></script>
 </body>
