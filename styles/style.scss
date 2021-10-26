@@ -490,3 +490,23 @@ footer{
     }
   }
 }
+
+.tab{
+  float:left;
+}
+.tab-2{
+  margin-left: 50px;
+  input{
+    display: block;
+    margin-bottom: 10px;
+  }
+}
+tr{
+  transition: all .25s ease-in-out;
+  &:hover{
+    r:hover{
+      background-color: #EEE;
+      cursor: pointer;
+  }
+}
+}
