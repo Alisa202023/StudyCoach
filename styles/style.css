@@ -646,4 +646,53 @@ footer .links ul {
     width: 31.33%;
   }
 }
+
+.containerTable {
+  overflow: hidden;
+}
+
+.tab {
+  float: left;
+}
+
+.tab1 {
+  max-width: 500px;
+  width: 100%;
+}
+
+.tab-2 {
+  margin-left: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.tab-2 input {
+  margin-bottom: 10px;
+}
+
+.tab-2 button {
+  margin-top: 10px;
+  border: 1px solid grey;
+}
+
+.tab-2 button:hover {
+  background-color: #7B0B2D;
+  color: #fff;
+  cursor: pointer;
+}
+
+tr {
+  -webkit-transition: all .25s ease-in-out;
+  transition: all .25s ease-in-out;
+}
+
+tr:hover {
+  background-color: #EEE;
+  cursor: pointer;
+}
 /*# sourceMappingURL=style.css.map */
