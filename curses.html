@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <div class="tab tab-1">
+      <table id="table" border="1">
+        <tr>
+          <th>Course</th>
+          <th>Couch</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td>Design</td>
+          <td>Ivanov Ivan</td>
+          <td>text description</td>
+        </tr>        
+      </table>
+      <table id="table2" border="1"></table>
+    </div>
+
+    <div class="tab tab-2">
+      Course<input type="text" name="course" id="course">
+      Couch<input type="text" name="couch" id="couch">
+      Description<input type="text" name="desc" id="desc">
+
+      <button onclick="addHTMLTableRow(); ">Add</button>
+      <button onclick="editHtmlTableSelectedRow();">Edit</button>
+      <button onclick="removeSelectedRow();">Remove</button>
+      <button onclick="saveData();">Save</button>
+    </div>
+  </div> 
+  
+ 
+  <script src="script.js"></script>
+</body>
+</html>
