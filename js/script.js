@@ -1,4 +1,10 @@
-var rIndex, table = document.getElementById("table");
+let course,
+    courses = [],
+    courses2,
+    table = document.getElementById("table");
+
+
+
 
 function checkEmptyInput(){
   var isEmpty = false,
@@ -7,113 +13,190 @@ function checkEmptyInput(){
   desc = document.getElementById("desc").value;
 
   if (course === ""){
-    alert("Course cannot be empty");
+    alert("course cannot be empty");
     isEmpty = true;
   }
   else if (couch ===""){
-    alert("Couch cannot be empty");
+    alert("couch cannot be empty");
     isEmpty = true;
   }
   else if (desc ===""){
-    alert("descrition cannot be empty");
+    alert("desc cannot be empty");
     isEmpty = true;
   }
   return isEmpty;
 }
 
-function addHTMLTableRow(){
-  // get the table by id
-  // create a new row and cells
-  // get value from input text
-  // set the values into row cell's
+function Create(){
+  let course = document.getElementById("course").value,
+  couch = document.getElementById("couch").value,
+  desc = document.getElementById("desc").value;
   if(!checkEmptyInput()){
-    var newRow = table.insertRow(table.length),
-    cell1 = newRow.insertCell(0),
-    cell2 = newRow.insertCell(1),
-    cell3 = newRow.insertCell(2),
-    course = document.getElementById("course").value, 
-    couch = document.getElementById("couch").value, 
-    desc = document.getElementById("desc").value;
-    
-    cell1.innerHTML = course;
-    cell2.innerHTML = couch;
-    cell3.innerHTML = desc;
-    //call the function to set the event to the new row
-    selectedRowToInput();
-  }
-}
+    courses=new Array();
 
-//display selected row data into input text
-function selectedRowToInput(){
+    courses=JSON.parse(localStorage.getItem("courses"))?JSON.parse(localStorage.getItem("courses")):[]
   
-  for (var i = 1; i < table.rows.length; i++){
-    table.rows[i].onclick = function(){
-      //get the selected row index
-      rIndex = this.rowIndex;
-      document.getElementById("course").value = this.cells[0].innerHTML;
-      document.getElementById("couch").value = this.cells[1].innerHTML;
-      document.getElementById("desc").value = this.cells[2].innerHTML;
-    }
+    courses.push({
+      "course":course,
+      "couch":couch,
+      "desc":desc
+    });
+  
+    localStorage.setItem("courses",JSON.stringify(courses));
+  
+    Read();
   }
 }
-selectedRowToInput();
+function Read(){
 
-function editHtmlTableSelectedRow(){
-  var course = document.getElementById("course").value,
-      couch = document.getElementById("couch").value,
-      desc = document.getElementById("desc").value;
-
-      if(!checkEmptyInput()){
-        table.rows[rIndex].cells[0].innerHTML = course;
-        table.rows[rIndex].cells[1].innerHTML = couch;
-        table.rows[rIndex].cells[2].innerHTML = desc;
-      }
-}
-
-function removeSelectedRow(){
-  table.deleteRow(rIndex);
-
-  //clear input text
-  document.getElementById("course").value = "";
-  document.getElementById("couch").value = "";
-  document.getElementById("desc").value = "";
-}
-
-
-
-function saveData(){
-  let course=document.getElementById("course").value,
-       couch=document.getElementById("couch").value,
-       desc=document.getElementById("desc").value,
-
-       couchRecords=new Array();
-
-       couchRecords=JSON.parse(localStorage.getItem("records"))?JSON.parse(localStorage.getItem("records")):[]
-
-  couchRecords.push({
-  "course":course,
-  "couch":couch,
-  "desc":desc
-  })
-
-  localStorage.setItem("records",JSON.stringify(couchRecords));
-
-  showData();
-}
-
-function showData()
-{
-  document.getElementById("table2").innerHTML="";
-  let couchRecords=new Array();
-  couchRecords=JSON.parse(localStorage.getItem("records"))?JSON.parse(localStorage.getItem("records")):[]
-  if(couchRecords)
+  document.getElementById("table").innerHTML="";
+  let courses2=new Array();
+  courses2=JSON.parse(localStorage.getItem("courses"))?JSON.parse(localStorage.getItem("courses")):[]
+  if(courses2)
   {
-    for(let i=0;i<couchRecords.length;i++)
+    table.innerHTML+=`
+    <tr>
+      <th clase="space">№</th>
+      <th clase="space">COURSE</th>
+      <th clase="space">COUCH</th>
+      <th clase="space">DESCRIPTION</th>
+      <th clase="space">OPERATIONS</th>
+    </tr>
+    `;
+    for(let i=0;i<courses2.length;i++)
     {
       let addDiv=document.createElement('tr');
-      addDiv.innerHTML='<td>'+couchRecords[i].course+'</td><td>'+couchRecords[i].couch+'</td><td>'+couchRecords[i].desc+'</td>';
-      document.getElementById("table2").appendChild(addDiv);
+      addDiv.innerHTML=`
+        <td clase="space">${i+1}</td>
+        <td clase="space">${courses2[i].course}</td>
+        <td clase="space">${courses2[i].couch}</td>
+        <td clase="space">${courses2[i].desc}</td>
+        <td clase="space">
+          <button onclick="Update(${i})">Edit</button>
+          <button onclick="Delete(${i})">Delete</button>
+        </td>
+      `;
+     
+      document.getElementById("table").appendChild(addDiv);
 
     }
   }
+}
+
+function Update(i3){
+  let courses4=JSON.parse(localStorage.getItem("courses"));
+  table.innerHTML='';
+  table.innerHTML+=`
+  <tr>
+      <th clase="space">№</th>
+      <th clase="space">COURSE</th>
+      <th clase="space">COUCH</th>
+      <th clase="space">DESCRIPTION</th>
+      <th clase="space">OPERATIONS</th>
+    </tr>
+  `;
+  for(var i=0;i<courses4.length;i++){
+    if(i==i3){
+      table.innerHTML+=`
+      <tr>
+        <td class="space">${i+1}</td>
+        <td class="space"><input id="newCourse" placeholder="${courses4[i].course}"</input></td>
+        <td class="space"><input id="newCouch" placeholder="${courses4[i].couch}"</input></td>
+        <td class="space"><input id="newDesc" placeholder="${courses4[i].desc}"</input></td>
+        <td class="space">
+          <button onclick="Update2(${i})">Update</button>
+          <button onclick="Read(${i})">Cancel</button>
+        </td>
+      </tr>
+      `;
+    }
+    else{
+      table.innerHTML+=`
+      <tr>
+        <td clase="space">${i+1}</td>
+        <td clase="space">${courses4[i].course}</td>
+        <td clase="space">${courses4[i].couch}</td>
+        <td clase="space">${courses4[i].desc}</td>
+        <td clase="space">
+          <button onclick="Update(${i})">Edit</button>
+          <button onclick="Delete(${i})">Delete</button>
+        </td>
+      </tr>
+      `;
+    }
   }
+}
+
+function Update2(i){
+  let courses5=JSON.parse(localStorage.getItem("courses"));
+  courses5[i].course = document.getElementById("newCourse").value;
+  courses5[i].couch = document.getElementById("newCouch").value;
+  courses5[i].desc = document.getElementById("newDesc").value;
+  
+    localStorage.setItem("courses", JSON.stringify(courses5));
+    Read();
+  
+}
+
+function Delete(item){
+  let courses3 = JSON.parse(localStorage.getItem("courses"));
+  courses3.splice(item,1);
+  localStorage.setItem("courses", JSON.stringify(courses3));
+  Read();
+}
+
+
+function activateModal() {
+  let modalEl = document.createElement('div');
+  modalEl.style.maxWidth= '450px';
+  modalEl.style.width = '95%';
+  modalEl.style.height = '600px';
+  modalEl.style.margin = '30px auto';
+  modalEl.style.backgroundColor = '#fff';
+  
+  let form = document.createElement("form");
+  form.className = "mui-form container";
+  form.id = "form";
+  modalEl.appendChild(form);
+
+  let div = document.createElement("div");
+  div.className = "mui-textfield";
+  form.appendChild(div);
+
+  let input = document.createElement("input");
+  input.type = "text";
+  input.id="course";
+  input.placeholder="Course";
+  div.appendChild(input);  
+
+  div = document.createElement("div");
+  div.className = "mui-textfield";
+  form.appendChild(div);
+  
+  input = document.createElement("input");
+  input.type = "text";
+  input.id="couch";
+  input.placeholder="Couch";
+  div.appendChild(input);
+
+  div = document.createElement("div");
+  div.className = "mui-textfield";
+  form.appendChild(div);
+  
+  textarea = document.createElement("textarea");
+  textarea.className="mui-textfield";
+  textarea.id="desc";
+  textarea.placeholder="Description";
+  div.appendChild(textarea);
+
+  let button = document.createElement("button");
+  button.type="submit";
+  button.className="mui-btn mui-btn--darkViolet";
+  button.textContent="Submit";
+  form.appendChild(button);  
+ 
+  button.onclick = function(){
+      Create();
+  }
+  mui.overlay('on', modalEl);
+}

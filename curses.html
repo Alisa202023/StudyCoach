@@ -4,41 +4,35 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Curses</title>
+  <title>courses</title>
   <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/mui.css">
 </head>
-<body>
+<body onload="Read();">
+  <section class="coursesList container">
+    <h2>Сourses</h2>
 
-  <div class="containerTable">
-    <div class="tab tab-1">
-      <table id="table" border="1">
-        <tr>
-          <th>Course</th>
-          <th>Couch</th>
-          <th>Description</th>
-        </tr>
-        <tr>
-          <td>Design</td>
-          <td>Ivanov Ivan</td>
-          <td>text description</td>
-        </tr>        
+    <!--<div id="reg">
+      <form id="form">
+        <h1 class="space">USERS</h1>
+        <input type="text" id="name" class="spase" placeholder="Name">
+        <button class="space" type="submit">Submit</button>
+      </form>
+    </div>-->
+    
+    <button class="mui-btn mui-btn--darkViolet" onclick="activateModal()">Add course</button>
+  
+
+    <div>
+      <table id="table" class="mui-table mui-table--bordered">
+  
       </table>
-      <table id="table2" border="1"></table>
     </div>
-
-    <div class="tab tab-2">
-      Course<input type="text" name="course" id="course">
-      Couch<input type="text" name="couch" id="couch">
-      Description<input type="text" name="desc" id="desc">
-
-      <button onclick="addHTMLTableRow(); ">Add</button>
-      <button onclick="editHtmlTableSelectedRow();">Edit</button>
-      <button onclick="removeSelectedRow();">Remove</button>
-      <button onclick="saveData();">Save</button>
-    </div>
-  </div> 
+    
+  </section>
   
  
   <script src="js/script.js"></script>
+  <script src="js/mui.min.js"></script>
 </body>
 </html>
