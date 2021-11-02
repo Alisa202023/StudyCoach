@@ -4,6 +4,9 @@
 }
 body{
   font-family: "RobotoMedium";
+  a, a:hover, a:focus{
+    text-decoration: none;
+  }
 }
 h1{
   font-size: 32px;
@@ -14,10 +17,10 @@ h2{
   font-family: "Roboto";
 }
 h3{
-  font-size: 24px;
+  font-size: 30px;
   font-family: "Roboto";
 }
-h1,h3{
+h1, h2, h3{
   margin-block-start: 0em;
   margin-block-end: 0em;
 }
@@ -36,36 +39,22 @@ img{
   max-width: 100%;
 }
 .container{
-  margin:0 5px;
+  margin-right: 5px;
+  margin-left: 5px;
 }
+/*--------------------------HEADER------------------------------*/
 .header{
   display: flex;
   justify-content: space-between;
   max-width:100%;
   height:65px;
   font-family: "RobotoMedium";
-
-  &__logo{
-    font-family: "Spicy";
-    font-size: 48px;
-    white-space: nowrap;
-    a, a:hover, a:focus{
-      text-decoration: none;
-    }
-    &-red{
-      color:#7B0B2D;
-    }
-    &-blue{
-      color:#1D0073;
-    }
-  }
-  &__menu{
+  /*Menu for header*/
+  .menu{
     max-width: 430px;
     width:100%;
-   
     ul{
       align-items: center;
-      
       display: flex;
       font-size: 20px;
       justify-content: space-between;
@@ -76,11 +65,9 @@ img{
         display: block;
       }  
     }
-
     li{
       &>a{
         color:#1D0073;
-        text-decoration: none;
       }
       &:hover>a{
         color:#7B0B2D;
@@ -88,14 +75,13 @@ img{
       }
     }
   }
-
-  &__buttons{
+  /*Buttons for header*/
+  .buttons{
     align-items: center;
     display: flex;
     justify-content: center;
     max-width: 340px;
     width:100%;
-
     button{
       max-width: 152px;
       font-size: 20px;
@@ -103,72 +89,21 @@ img{
     }
   }
 }
+/*logo*/
+.logo{
+  font-family: "Spicy";
+  font-size: 36px;
+  white-space: nowrap;  
+  margin-top: 10px; 
+  &-red{
+    color:#7B0B2D;
+  }
+  &-blue{
+    color:#1D0073;
+  }
+}
 /*Menu for phone*/
 @media screen and (max-width:860px){
-  .menu-button{
-    display: block;
-    position: relative; 
-    width: 39px;
-    height: 20px;
-    z-index: 19;
-    float: right;
-    margin-top: 15px;
-    span{
-      position: absolute;
-      background-color: #000;
-      position: absolute;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      top:9px;
-      transition: all 0.3s ease 0s;
-    }
-    &::before, &::after{
-      content: '';
-      background-color: #000;
-      position: absolute;
-      width: 100%;
-      height: 2px;
-      left: 0;
-      transition: all 0.3s ease 0s;
-    }
-
-    &::before{top:0;}
-    &::after{bottom:0;}
-  }     
-  .menu-button.active{
-    span{transform:scale(0);}
-    &::before{transform: rotate(45deg); top:9px;}
-    &::after{transform: rotate(-45deg); bottom: 9px;}
-  }
-  .menu{
-    nav{
-      display: block;
-      visibility: hidden;
-      li{
-        margin:4%;
-        padding:2%;
-        margin-right: 6%;
-        text-align: center;
-      }
-      .active{
-        display: block;
-        visibility: visible;
-        height:250px;
-      }
-    }
-    
-    
-  }
-    
-  .menu_active{
-    transform: translateX(0%);
-    opacity: 1.1;
-  }
-  .menu-button-close{
-    float: right; 
-    margin-top:20px; 
-  }
   .main__scroll{overflow: hidden;}
   .overlay{
     position: absolute;
@@ -182,61 +117,132 @@ img{
     background: #fff;
     overflow-y: scroll;
   }  
-  .header__buttons{
-    display: none;
-  }
-
-  .header__buttons.active{
-    display: block;
-    text-align: center;
-    max-width: 100%;
-  }
-}
-  
-
+  /*header*/
+  .header{
+    .menu{
+      max-width: 100%;
+      width: 100%;
+      /*burger*/
+      &__button{
+        display: block;
+        position: relative; 
+        width: 39px;
+        height: 20px;
+        z-index: 19;
+        float: right;
+        margin-top: 15px;
+        span{
+          position: absolute;
+          background-color: #000;
+          position: absolute;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          top:9px;
+          transition: all 0.3s ease 0s;
+        }
+        &::before, &::after{
+          content: '';
+          background-color: #000;
+          position: absolute;
+          width: 100%;
+          height: 1px;
+          left: 0;
+          transition: all 0.3s ease 0s;
+        }
+        &::before{top:0;}
+        &::after{bottom:0;}
+        &-close{
+          float: right; 
+          margin-top:20px; 
+        }
+      }
+      &__button.active{
+        span{transform:scale(0);}
+        &::before{transform: rotate(45deg); top:9px;}
+        &::after{transform: rotate(-45deg); bottom: 9px;}
+      }   
+      &__active{
+        transform: translateX(0%);
+        opacity: 1.1;
+      }        
+      /*menu*/
+      nav{
+        display: none;
+        visibility: hidden;
+        li{
+          margin:4%;
+          padding:2%;
+          margin-right: 6%;
+          text-align: center;
+        }
+        .active{
+          display: block;
+          visibility: visible;
+          height:250px;
+        }
+      }
+    }
+    /*buttons for header*/
+    .buttons{
+      display: none;
+    }
+    .buttons.active{
+      display: block;
+      text-align: center;
+      max-width: 100%;
+    }
+  } 
+ }
+ @media screen and (max-width:1200px){
+   .header{
+     .menu{
+       max-width: 100%;
+     }
+     .buttons{
+       max-width: 250px;
+       button{
+        padding: 14px 24px;
+       }
+     }
+   }
+ }
 /*Main Screen*/
 .main{
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  margin-bottom: 80px;
-
+  margin-top: 20px;
+  margin-bottom: 20px;
   &__description{
     max-width: 596px;
-    margin-top: 60px;
-
     h1,h3{
-      margin-bottom: 32px;
+      margin-bottom: 15px;
       color:#1D0073;
     }
     button{
-      max-width: 230px;
+      margin-top: 10px;
+      max-width: 190px;
       font-size: 24px;
-      padding:13px 67px;
+      padding: 13px 1px;
     }
+  } 
+  &__image{
+    margin-top: 20px;
   }
-
-  &__image {
-    margin-top: 83px;
-  }
-  
 }
 /*About Us*/
 .aboutUs{
-  &__item{
+  .item{
     align-items: center;
     display: flex;
-    
     flex-direction: column;
     justify-content: space-between;
-    margin:0 auto;
+    margin: 0 auto 20px auto;
     width:80%;   
-
-    .itemDesc{
+    &__description{
       max-width: 630px;
-      width:100%;
-    
-      
+      width:100%;      
       h3,p{
         text-align: center;
       }
@@ -248,14 +254,13 @@ img{
         color:#281E1E;
       }
     }
-    .itemImg{
+    &__image{
       order:1;
     }
   }
 }
 /*Courses*/
 .courses{
-  margin-top: 80px;
   background-image: url(../img/background2.svg);
   background-size: cover;
   background-repeat: no-repeat;
@@ -263,7 +268,8 @@ img{
   padding-bottom: 100px;
   h2{
     color:#FBCABA;    
-    margin-top: 120px;
+    margin-top: 100px;
+    margin-bottom: 30px;
   }
   h3{
     color:#EDEFFE;
@@ -276,9 +282,6 @@ img{
     color:#a88ef2;
     transition: 0.2s ease-in-out;
   }
-  a, a:hover, a:focus{
-    text-decoration: none;
-  }
   &__items{
     display: flex;
     justify-content: center;
@@ -287,102 +290,118 @@ img{
     padding:0 30px;
     text-align: center;
     margin:auto;
-  }  
-  &__item{
-    max-width: 428px;
-    width:100%;
-    padding:20px 15px;
-    a{
-      display: block;
-    }
-    .itemImg{
-      display: inline-block;
-      img{
-        height:230px;
+    .item{
+      max-width: 428px;
+      width:100%;
+      padding:20px 15px;
+      a{
         display: block;
-        transition:1s;
-        z-index: 2;      
+      }
+      &__image{
+        display: inline-block;
+        img{
+          height:230px;
+          display: block;
+          transition:1s;
+          z-index: 2;      
+        }
+      }
+      :hover>.item__image img{
+        transform:scale(1.2);
+      }
+      :hover>h3{
+        color:#FBCABA;
       }
     }
-    :hover>.itemImg img{
-      transform:scale(1.2);
-    }
-    :hover>h3{
-      color:#FBCABA;
-    }
-  }
-  
+  }    
 }
-/*Reviews*/
+/*Reviews, advantages and details*/
 .reviews, .advantages, .details{
   width:80%;
-  margin:0 auto;
+  margin:20px auto 0 auto;
   h2{
     color:#7B0B2D;
     text-align: center;
+    margin-bottom: 20px;
     &:hover{
       color:#1D0073;
     }
-  }
-  a, a:hover, a:focus{
-    text-decoration: none;
   }
   p{
     color:#2D0511;
   }
 }
+/*Reviews*/
 .reviews{ 
-  .reviews__block{
+  &__items{
     display:flex;
     justify-content: space-between;
-  }
-  .reviews__item{
-    display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid rgba(123, 11, 45, 0.6);
-    border-radius: 50px;
-    &-title{
+    .item{
       display: flex;
-      align-items:center;
-      margin:24px 0;
-      span{
-        font-size: 24px;
-        color:#7B0B2D;
-      }
-    }
-    &-desc{
+      flex-direction: column;
+      align-items: center;
       max-width: 643px;
       width:100%;
-      text-align: center;
-      margin-bottom: 24px;
-    }
-    &:last-child{
-      margin-top: 24px;
-    }
-  }
-  
+      border: 1px solid rgba(123, 11, 45, 0.6);
+      border-radius: 50px;
+      &__title{
+        display: flex;
+        align-items:center;
+        flex-direction: column;
+        margin:10px 0;
+        span{
+          font-size: 24px;
+          color:#7B0B2D;
+        }
+      }
+      &__description{
+        text-align: center;
+        margin-bottom: 24px;
+        padding: 0 30px;
+      }
+      &:last-child{
+        margin-top: 24px;
+      }
+    }  
+     
+  }  
+  &__img{
+    order:1;
+    margin-top: 30px;
+  } 
 }
+/*Advantages*/
 .advantages{
   h3{
     font-size: 24px;
     color:#7B0B2D;
   }
-  &__block{
+  &__item{
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    .item{
+      max-width: 750px;
+      width:100%;
+      &__title{
+        margin-bottom: 18px;
+      }
+      &__description{
+        max-width: 420px;
+      }
+      :last-child &__title{
+        margin-top: 20px;
+      }
+    }
   }
-  &__item{
-    max-width: 750px;
-    width:100%;
-    &-title{
-      margin-bottom: 18px;
-    }
-    :last-child &-title{
-      margin-top: 50px;
-    }
+  &__image{
+    max-width: 550px;
   }
 }
+/*Details*/
 .details{
   p{
     text-align: center;
@@ -391,14 +410,16 @@ img{
     margin: 0 auto;
     margin-bottom: 24px;
   }
-  &__item{
+  .item{
     display: flex;
     justify-content: space-between;
-    &-form{
+    flex-direction: column;
+    align-items: center;
+    &__form{
       background: rgba(255, 252, 252, 0.61);
       box-shadow: 0px 10px 14px rgba(123, 11, 45, 0.4);
       border-radius: 20px;
-      max-width: 600px;
+      max-width: 450px;
       width:100%;
       form{
         padding:40px;
@@ -411,15 +432,18 @@ img{
         }
       }
     }
+    &__image{
+      order:1;
+    }
   }
 }
+/*Footer*/
 footer{
   background-image: url(../img/footer.png);
   background-size: cover;
   background-repeat: no-repeat;
   height:260px;
-
-  .header__logo{
+  .logo{
     padding-top: 80px;
     text-align: center;
     &-blue{
@@ -427,7 +451,7 @@ footer{
     }
   }
   .links{
-   padding:20px 0;
+    padding:20px 0;
     max-width: 225px;
     width: 100%;
     margin: 0 auto;
@@ -444,33 +468,51 @@ footer{
     }
   }
 }
-
+/*Adaptive for main page*/
 @media screen and (min-width: 768px) {
   h1{
-    font-size: 50px;
+    font-size: 36px;
   }
   h3{
-    font-size: 48px;
+    font-size: 32px;
   }
   .container{
-    margin:0 30px;
+    margin-right: 30px;
+    margin-left: 30px;
+  }
+  .header{
+    .logo{
+      font-size: 48px;
+      margin-top: 0;
+    }
   }
   .main{
+    margin-top: 100px;
+    margin-bottom: 100px;
+    flex-direction: row;
     &__description{
-      margin-top: 202px;
+      margin-top: 0px;
+      button{
+        max-width: 230px;
+        padding:13px 67px;
+      }
+    }
+    &__image{
+      margin-top: 0px;
     }
   }
   .aboutUs{
-    &__item{
+    .item{
+      margin: 0 auto 100px auto;
       flex-direction: row;
-    }
-    .itemImg{
-     order:initial;
+      &__image{
+        order:initial;
+      }
     }
   }
   .courses{
-    &__item {
-        width: 50%;
+    .item {
+      width: 50%;
     }
     &__items{
       justify-content: space-between;
@@ -478,19 +520,119 @@ footer{
       margin-right: -15px;
     }
   }
-  .main{
-    flex-direction: row;
+  .reviews, .advantages, .details{
+    margin:100px auto 0 auto;
+    h2{
+      margin-bottom: 50px;
+    }
+  }
+  .reviews{ 
+    &__items{
+      .item{
+        &__title{
+          flex-direction: row;
+          margin:24px 0;
+        }
+      } 
+    }  
+  }
+  .advantages{
+    &__item{
+      .item{
+        :last-child &__title{
+          margin-top: 50px;
+        }
+      }
+    }
   }
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 1280px) {
+  h1{
+    font-size: 50px;
+  }
+  h3{
+    font-size: 48px;
+  }
+  .main{
+    &__description{
+      h1,h3{
+        margin-bottom: 32px;
+        color:#1D0073;
+      }
+    }
+  }
   .courses{
-    &__item {
+    .item {
         width: 31.33%;
     }
   }
+  .reviews{ 
+    &__items{
+      flex-direction: row;
+      align-items: inherit;
+    }  
+    &__img{
+      order:0;
+      margin-top: 0;
+    }
+  }
+  .advantages{
+    &__item{
+      flex-direction: row;
+      align-items: inherit;
+    }
+  }
+  .details{
+    .item{
+      flex-direction: row;
+      align-items: inherit;
+      &__image{
+        order:0;
+      }
+    }
+  }
 } 
+@media screen and (min-width: 1400px){
+  .main{
+    &__description{
+      margin-top: 120px;
+    }
+  }
+  .advantages{
+    &__item{
+      .item{
+        &__description{
+          max-width: 550px;
+        }
+      }
+    }
+  }
+  .details{
+    .item{
+      &__form{
+        max-width: 600px;        
+      }
+    }
+  }
+}
+@media screen and (min-width: 1800px){
+  .advantages{
+    &__item{
+      .item{
+        &__description{
+          max-width: 650px;
+        }
+      }
+    }
+    &__image{
+      max-width: 750px;
+    }
+  }
+}
 
+
+/*--------------Course page---------------*/
 .coursesList{
   h2{
     margin-block-start: 0em;
@@ -509,3 +651,47 @@ footer{
   }
 }
 
+/*--------------users page---------------*/
+.usersList{
+  font-family:"Roboto";
+  h2{
+    margin-block-start: 0em;
+    margin-block-end: 0;
+    margin:10px 0px 40px 0px;
+  }
+  tr th, .info__table tbody tr th{
+    background-color: #eae3f7;
+  }
+  td{
+    padding:10px;
+    background-color: none;
+  }
+  tr:hover{
+    background-color: #f7e3e3;
+    cursor: pointer;
+  }
+  .title{
+    text-align: center;
+    text-transform: uppercase;
+    background-color:#e9ddec;
+  }
+  .title:hover{
+    background-color: #e9ddec;
+    cursor: default;
+  }
+
+}
+.users__details{
+  h3{
+    text-align: center;
+  }
+  padding:30px;
+  .info__table{
+    margin-top: 20px;
+    tr th{background-color: #eae3f7;}
+    td{
+      padding:10px;
+      background-color: none;
+    }
+  }
+}

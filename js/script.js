@@ -1,17 +1,8 @@
-let course,
-    courses = [],
-    courses2,
-    table = document.getElementById("table");
-
-
-
-
-function checkEmptyInput(){
-  var isEmpty = false,
-  course = document.getElementById("course").value,
-  couch = document.getElementById("couch").value,
-  desc = document.getElementById("desc").value;
-
+let courses = [],
+    table = document.querySelector("#table");
+    
+function checkEmptyInput(course, couch, desc){
+  let isEmpty = false;
   if (course === ""){
     alert("course cannot be empty");
     isEmpty = true;
@@ -27,85 +18,78 @@ function checkEmptyInput(){
   return isEmpty;
 }
 
-function Create(){
-  let course = document.getElementById("course").value,
-  couch = document.getElementById("couch").value,
-  desc = document.getElementById("desc").value;
-  if(!checkEmptyInput()){
-    courses=new Array();
+function add(){
+  let course = document.querySelector("#course").value,
+      couch = document.querySelector("#couch").value,
+      desc = document.querySelector("#desc").value;
 
+  if(!checkEmptyInput(course, couch, desc)){
     courses=JSON.parse(localStorage.getItem("courses"))?JSON.parse(localStorage.getItem("courses")):[]
-  
     courses.push({
       "course":course,
       "couch":couch,
       "desc":desc
     });
-  
     localStorage.setItem("courses",JSON.stringify(courses));
-  
-    Read();
+    read();
   }
 }
-function Read(){
 
-  document.getElementById("table").innerHTML="";
-  let courses2=new Array();
-  courses2=JSON.parse(localStorage.getItem("courses"))?JSON.parse(localStorage.getItem("courses")):[]
-  if(courses2)
+function read(){
+  document.querySelector("#table").innerHTML="";
+  courses=JSON.parse(localStorage.getItem("courses"))?JSON.parse(localStorage.getItem("courses")):[]
+  if(courses)
   {
     table.innerHTML+=`
     <tr>
-      <th clase="space">№</th>
-      <th clase="space">COURSE</th>
-      <th clase="space">COUCH</th>
-      <th clase="space">DESCRIPTION</th>
-      <th clase="space">OPERATIONS</th>
+      <th>№</th>
+      <th>COURSE</th>
+      <th>COUCH</th>
+      <th>DESCRIPTION</th>
+      <th>OPERATIONS</th>
     </tr>
     `;
-    for(let i=0;i<courses2.length;i++)
+    for(let i=0;i<courses.length;i++)
     {
       let addDiv=document.createElement('tr');
       addDiv.innerHTML=`
-        <td clase="space">${i+1}</td>
-        <td clase="space">${courses2[i].course}</td>
-        <td clase="space">${courses2[i].couch}</td>
-        <td clase="space">${courses2[i].desc}</td>
-        <td clase="space">
-          <button onclick="Update(${i})">Edit</button>
-          <button onclick="Delete(${i})">Delete</button>
+        <td>${i+1}</td>
+        <td>${courses[i].course}</td>
+        <td>${courses[i].couch}</td>
+        <td>${courses[i].desc}</td>
+        <td>
+          <button onclick="update(${i})">Edit</button>
+          <button onclick="deleteItem(${i})">Delete</button>
         </td>
-      `;
-     
-      document.getElementById("table").appendChild(addDiv);
-
+      `;     
+      document.querySelector("#table").appendChild(addDiv);
     }
   }
 }
 
-function Update(i3){
-  let courses4=JSON.parse(localStorage.getItem("courses"));
+function update(item){
+  courses=JSON.parse(localStorage.getItem("courses"));
   table.innerHTML='';
   table.innerHTML+=`
   <tr>
-      <th clase="space">№</th>
-      <th clase="space">COURSE</th>
-      <th clase="space">COUCH</th>
-      <th clase="space">DESCRIPTION</th>
-      <th clase="space">OPERATIONS</th>
+      <th>№</th>
+      <th>COURSE</th>
+      <th>COUCH</th>
+      <th>DESCRIPTION</th>
+      <th>OPERATIONS</th>
     </tr>
   `;
-  for(var i=0;i<courses4.length;i++){
-    if(i==i3){
+  for(var i=0;i<courses.length;i++){
+    if(i==item){
       table.innerHTML+=`
       <tr>
-        <td class="space">${i+1}</td>
-        <td class="space"><input id="newCourse" placeholder="${courses4[i].course}"</input></td>
-        <td class="space"><input id="newCouch" placeholder="${courses4[i].couch}"</input></td>
-        <td class="space"><input id="newDesc" placeholder="${courses4[i].desc}"</input></td>
-        <td class="space">
-          <button onclick="Update2(${i})">Update</button>
-          <button onclick="Read(${i})">Cancel</button>
+        <td>${i+1}</td>
+        <td><input id="newCourse" placeholder="${courses[i].course}"></input></td>
+        <td><input id="newCouch" placeholder="${courses[i].couch}"></input></td>
+        <td><input id="newDesc" placeholder="${courses[i].desc}"></input></td>
+        <td>
+          <button onclick="afterClickUpdate(${i})">Update</button>
+          <button onclick="read(${i})">Cancel</button>
         </td>
       </tr>
       `;
@@ -113,13 +97,13 @@ function Update(i3){
     else{
       table.innerHTML+=`
       <tr>
-        <td clase="space">${i+1}</td>
-        <td clase="space">${courses4[i].course}</td>
-        <td clase="space">${courses4[i].couch}</td>
-        <td clase="space">${courses4[i].desc}</td>
-        <td clase="space">
-          <button onclick="Update(${i})">Edit</button>
-          <button onclick="Delete(${i})">Delete</button>
+        <td>${i+1}</td>
+        <td>${courses[i].course}</td>
+        <td>${courses[i].couch}</td>
+        <td>${courses[i].desc}</td>
+        <td>
+          <button onclick="update(${i})">Edit</button>
+          <button onclick="deleteItem(${i})">Delete</button>
         </td>
       </tr>
       `;
@@ -127,24 +111,35 @@ function Update(i3){
   }
 }
 
-function Update2(i){
-  let courses5=JSON.parse(localStorage.getItem("courses"));
-  courses5[i].course = document.getElementById("newCourse").value;
-  courses5[i].couch = document.getElementById("newCouch").value;
-  courses5[i].desc = document.getElementById("newDesc").value;
-  
-    localStorage.setItem("courses", JSON.stringify(courses5));
-    Read();
-  
+function afterClickUpdate(i){
+  courses=JSON.parse(localStorage.getItem("courses"));
+  courses[i].course = document.querySelector("#newCourse").value;
+  courses[i].couch = document.querySelector("#newCouch").value;
+  courses[i].desc = document.querySelector("#newDesc").value;
+  if (courses[i].course === ""){
+    alert("course cannot be empty");
+    isEmpty = true;
+  }
+  else if (courses[i].couch ===""){
+    alert("couch cannot be empty");
+    isEmpty = true;
+  }
+  else if (courses[i].desc ===""){
+    alert("desc cannot be empty");
+    isEmpty = true;
+  }
+  else{
+    localStorage.setItem("courses", JSON.stringify(courses));
+    read();
+  }  
 }
 
-function Delete(item){
-  let courses3 = JSON.parse(localStorage.getItem("courses"));
-  courses3.splice(item,1);
-  localStorage.setItem("courses", JSON.stringify(courses3));
-  Read();
+function deleteItem(item){
+  let courses = JSON.parse(localStorage.getItem("courses"));
+  courses.splice(item,1);
+  localStorage.setItem("courses", JSON.stringify(courses));
+  read();
 }
-
 
 function activateModal() {
   let modalEl = document.createElement('div');
@@ -196,7 +191,7 @@ function activateModal() {
   form.appendChild(button);  
  
   button.onclick = function(){
-      Create();
+    add();
   }
   mui.overlay('on', modalEl);
 }
