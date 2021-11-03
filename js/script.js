@@ -1,7 +1,7 @@
 let courses = [],
     table = document.querySelector("#table");
     
-function checkEmptyInput(course, couch, desc){
+function checkEmptyInput(course, couch, desc, topics){
   let isEmpty = false;
   if (course === ""){
     alert("course cannot be empty");
@@ -12,7 +12,11 @@ function checkEmptyInput(course, couch, desc){
     isEmpty = true;
   }
   else if (desc ===""){
-    alert("desc cannot be empty");
+    alert("description cannot be empty");
+    isEmpty = true;
+  }
+  else if (topics ===""){
+    alert("topics cannot be empty");
     isEmpty = true;
   }
   return isEmpty;
@@ -21,14 +25,16 @@ function checkEmptyInput(course, couch, desc){
 function add(){
   let course = document.querySelector("#course").value,
       couch = document.querySelector("#couch").value,
-      desc = document.querySelector("#desc").value;
+      desc = document.querySelector("#desc").value,
+      topics= document.querySelector("#topics").value;
 
-  if(!checkEmptyInput(course, couch, desc)){
+  if(!checkEmptyInput(course, couch, desc, topics)){
     courses=JSON.parse(localStorage.getItem("courses"))?JSON.parse(localStorage.getItem("courses")):[]
     courses.push({
       "course":course,
       "couch":couch,
-      "desc":desc
+      "desc":desc,
+      "topics":topics
     });
     localStorage.setItem("courses",JSON.stringify(courses));
     read();
@@ -46,7 +52,7 @@ function read(){
       <th>COURSE</th>
       <th>COUCH</th>
       <th>DESCRIPTION</th>
-      <th>OPERATIONS</th>
+      <th class="operations"></th>
     </tr>
     `;
     for(let i=0;i<courses.length;i++)
@@ -57,14 +63,57 @@ function read(){
         <td>${courses[i].course}</td>
         <td>${courses[i].couch}</td>
         <td>${courses[i].desc}</td>
-        <td>
-          <button onclick="update(${i})">Edit</button>
-          <button onclick="deleteItem(${i})">Delete</button>
+        <td class="operations">
+          <button class="mui-btn mui-btn--darkBlackRed" onclick="update(${i})">Edit</button>
+          <button class="mui-btn mui-btn--darkBlackRed" onclick="deleteItem(${i})">Delete</button>
+          <button class="mui-btn mui-btn--darkBlackRed" onclick="view(${i})">View details</button>
         </td>
       `;     
       document.querySelector("#table").appendChild(addDiv);
     }
   }
+}
+
+function view(item){
+  let modalEl = document.createElement('div');
+  modalEl.style.maxWidth= '450px';
+  modalEl.style.width = '95%';
+  modalEl.style.height = '600px';
+  modalEl.style.margin = '30px auto';
+  modalEl.style.backgroundColor = '#fff';
+  
+  let div = document.createElement("div");
+  div.className = "courses__details";
+  modalEl.appendChild(div);
+
+  let title = document.createElement("h3");
+  title.textContent="Details";
+  div.appendChild(title);
+
+  let content = document.createElement("div");
+  content.className = "info";
+  div.appendChild(content);   
+
+  let table = document.createElement("table");
+ 
+  table.className="info__table mui-table mui-table--bordered";
+  table.innerHTML=`
+  <tr>
+      <th>TOPICS OF THE COURSE</th>
+  </tr>
+  `
+  content.appendChild(table);  
+  courses=JSON.parse(localStorage.getItem("courses"));
+  for(let i=0;i<courses.length;i++){
+    if(i==item){
+      table.innerHTML+=`
+      <tr>
+        <td>${courses[i].topics}</td>
+      </tr>
+      `;
+    }
+  }
+  mui.overlay('on', modalEl);
 }
 
 function update(item){
@@ -79,7 +128,7 @@ function update(item){
       <th>OPERATIONS</th>
     </tr>
   `;
-  for(var i=0;i<courses.length;i++){
+  for(let i=0;i<courses.length;i++){
     if(i==item){
       table.innerHTML+=`
       <tr>
@@ -148,7 +197,7 @@ function activateModal() {
   modalEl.style.height = '600px';
   modalEl.style.margin = '30px auto';
   modalEl.style.backgroundColor = '#fff';
-  
+ 
   let form = document.createElement("form");
   form.className = "mui-form container";
   form.id = "form";
@@ -184,9 +233,19 @@ function activateModal() {
   textarea.placeholder="Description";
   div.appendChild(textarea);
 
+  div = document.createElement("div");
+  div.className = "mui-textfield";
+  form.appendChild(div);
+  
+  textarea = document.createElement("textarea");
+  textarea.className="mui-textfield";
+  textarea.id="topics";
+  textarea.placeholder="Topics of the course";
+  div.appendChild(textarea);
+
   let button = document.createElement("button");
   button.type="submit";
-  button.className="mui-btn mui-btn--darkViolet";
+  button.className="form__button mui-btn mui-btn--darkViolet";
   button.textContent="Submit";
   form.appendChild(button);  
  

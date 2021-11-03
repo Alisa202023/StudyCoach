@@ -17,8 +17,7 @@ document.querySelector('.content').innerHTML = `
         <th>PHONE</th>
     </tr>
 </table>`;
-for(key in USERS){
-    
+for(key in USERS){    
     let row = document.createElement('tr');
     row.innerHTML = `<td colspan=3>${key}</td>`;
     document.querySelector('.mui-table').appendChild(row);

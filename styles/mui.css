@@ -564,7 +564,7 @@ abbr[title] {
 }
 
 .mui-btn + .mui-btn {
-  margin-left: 8px;
+  margin-left: 0px;
 }
 
 .mui-btn--flat {
@@ -671,7 +671,18 @@ abbr[title] {
   color: #FFF;
   background-color: #1d0073ee;
 }
-
+.mui-btn--darkBlackRed{
+  color: #FFF;
+  background-color: #6e465f;
+}
+.mui-btn--darkBlackRed:hover, .mui-btn--darkBlackRed:focus, .mui-btn--darkBlackRed:active {
+  color: #FFF;
+  background-color: #6e465fe7;
+}
+.mui-btn--darkBlackRed[disabled]:hover, .mui-btn--darkBlackRed[disabled]:focus, .mui-btn--darkBlackRed[disabled]:active {
+  color: #FFF;
+  background-color: #6e465fe7;
+}
 .mui-btn--darkRedBack {
   color: #fff;
   background: #7B0B2D;
@@ -2030,7 +2041,8 @@ abbr[title] {
 }
 
 .mui-textfield > textarea {
-  min-height: 320px;
+  min-height: 150px;
+  resize: none;
 }
 .mui-textfield > textarea[rows]:not([rows="2"]):focus {
   margin-bottom: -1px;

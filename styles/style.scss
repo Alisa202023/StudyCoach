@@ -639,9 +639,24 @@ footer{
     margin-block-end: 0;
     margin:10px 0px 40px 0px;
   }
-  tr{
-    background-color: #eae3f7;
+  #table{
+    width: 100%;
+    th{background-color: #eae3f7;}
+    tr{
+      background-color: rgb(243, 235, 242);
+    }
+    td{
+      padding:10px;
+    }
+    .operations{
+      background-color: #fff;
+      padding:0px;
+      button{
+        margin-bottom: 1px;
+      }
+    }
   }
+  
   button{
     max-width: 152px;
     font-size: 20px;
@@ -649,8 +664,15 @@ footer{
     border-radius: 0;
     margin-bottom: 10px;
   }
+  
+ 
 }
-
+.form__button{
+  font-size: 20px;
+  padding:12px 17px;
+  border-radius: 0;
+  margin-bottom: 10px;
+}
 /*--------------users page---------------*/
 .usersList{
   font-family:"Roboto";
@@ -659,27 +681,26 @@ footer{
     margin-block-end: 0;
     margin:10px 0px 40px 0px;
   }
-  tr th, .info__table tbody tr th{
-    background-color: #eae3f7;
-  }
-  td{
-    padding:10px;
-    background-color: none;
-  }
-  tr:hover{
-    background-color: #f7e3e3;
-    cursor: pointer;
-  }
+  tr{
+    th{ background-color: #eae3f7;}
+    td{
+      padding:10px;
+      background-color: none;
+    }
+    &:hover{
+      background-color: #f7e3e3;
+      cursor: pointer;
+    }
+  }  
   .title{
     text-align: center;
     text-transform: uppercase;
     background-color:#e9ddec;
+    &:hover{
+      background-color: #e9ddec;
+      cursor: default;
+    }
   }
-  .title:hover{
-    background-color: #e9ddec;
-    cursor: default;
-  }
-
 }
 .users__details{
   h3{
