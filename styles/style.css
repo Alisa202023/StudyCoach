@@ -852,6 +852,18 @@ footer .links ul {
 
 .coursesList #table .operations button {
   margin-bottom: 1px;
+  color: #FFF;
+  background-color: #6e465f;
+}
+
+.coursesList #table .operations button:hover, .coursesList #table .operations button:focus, .coursesList #table .operations button:active {
+  color: #FFF;
+  background-color: #6e465fe7;
+}
+
+.coursesList #table .operations button[disabled]:hover, .coursesList #table .operations button[disabled]:focus, .coursesList #table .operations button[disabled]:active {
+  color: #FFF;
+  background-color: #6e465fe7;
 }
 
 .coursesList button {
@@ -860,13 +872,37 @@ footer .links ul {
   padding: 12px 17px;
   border-radius: 0;
   margin-bottom: 10px;
+  color: #FFF;
+  background-color: #1D0073;
 }
 
-.form__button {
+.coursesList button:hover, .coursesList button:focus, .coursesList button:active {
+  color: #FFF;
+  background-color: #1d0073ee;
+}
+
+.coursesList button[disabled]:hover, .coursesList button[disabled]:focus, .coursesList button[disabled]:active {
+  color: #FFF;
+  background-color: #1d0073ee;
+}
+
+.activate__form button {
   font-size: 20px;
   padding: 12px 17px;
   border-radius: 0;
   margin-bottom: 10px;
+  color: #FFF;
+  background-color: #1D0073;
+}
+
+.activate__form button:hover, .activate__form button:focus, .activate__form button:active {
+  color: #FFF;
+  background-color: #1d0073ee;
+}
+
+.activate__form button[disabled]:hover, .activate__form button[disabled]:focus, .activate__form button[disabled]:active {
+  color: #FFF;
+  background-color: #1d0073ee;
 }
 
 /*--------------users page---------------*/
@@ -907,23 +943,23 @@ footer .links ul {
   cursor: default;
 }
 
-.users__details {
+.users__details, .courses__details {
   padding: 30px;
 }
 
-.users__details h3 {
+.users__details h3, .courses__details h3 {
   text-align: center;
 }
 
-.users__details .info__table {
+.users__details .info__table, .courses__details .info__table {
   margin-top: 20px;
 }
 
-.users__details .info__table tr th {
+.users__details .info__table tr th, .courses__details .info__table tr th {
   background-color: #eae3f7;
 }
 
-.users__details .info__table td {
+.users__details .info__table td, .courses__details .info__table td {
   padding: 10px;
   background-color: none;
 }

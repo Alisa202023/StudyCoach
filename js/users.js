@@ -23,7 +23,7 @@ for(key in USERS){
     document.querySelector('.mui-table').appendChild(row);
     row.className="title";
     for(let i=0; i<USERS[key].length; i++){
-        let row = document.createElement('tr');
+        row = document.createElement('tr');
         row.innerHTML = `
         <td>${USERS[key][i][0]}</td>
         <td>${USERS[key][i][1]}</td>
@@ -33,36 +33,37 @@ for(key in USERS){
     }
 }
 
-let index, table = document.querySelector('.table');
-for(let i=1; i<table.rows.length; i++){
-    table.rows[i].onclick = function() {
+const rows = document.querySelector("table")?.rows;
+let index;
+
+Array.from(rows).forEach(row => {
+    row.onclick = function() {
         index = this.rowIndex;
-        console.log(index);
         activateModal();        
     }
-}
+});
 
 function activateModal() {
-    let modalEl = document.createElement('div');
+    const modalEl = document.createElement('div');
     modalEl.style.maxWidth= '450px';
     modalEl.style.width = '95%';
     modalEl.style.height = '600px';
     modalEl.style.margin = '30px auto';
     modalEl.style.backgroundColor = '#fff';
 
-    let div = document.createElement("div");
+    const div = document.createElement("div");
     div.className = "users__details";
     modalEl.appendChild(div);
 
-    let title = document.createElement("h3");
+    const title = document.createElement("h3");
     title.textContent="Details";
     div.appendChild(title);
 
-    let content = document.createElement("div");
+    const content = document.createElement("div");
     content.className = "info";
     div.appendChild(content);   
 
-    let table = document.createElement("table");
+    const table = document.createElement("table");
     table.className="info__table mui-table mui-table--bordered";
     table.innerHTML=`
     <tr>
@@ -72,7 +73,7 @@ function activateModal() {
     `
     content.appendChild(table);   
     
-    let tr = document.createElement("tr");
+    const tr = document.createElement("tr");
 
     switch(index){
         case 2:{
