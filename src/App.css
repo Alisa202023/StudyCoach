@@ -1,0 +1,81 @@
+@font-face {
+  font-family: RobotoMedium;
+  font-weight: 600;
+  font-style: normal;
+  src: url(./fonts/Robotomedium.woff2), url(./fonts/Robotomedium.woff);
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Roboto;
+  font-weight: 700;
+  font-style: normal;
+  src: url(./fonts/Roboto.woff2), url(./fonts/Roboto.woff);
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Spicy;
+  font-weight: 700;
+  font-style: normal;
+  src: url(./fonts/SpicyRice-Regular.ttf);
+  font-display: swap;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: "RobotoMedium";
+}
+
+a, a:hover, a:focus {
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 32px;
+  color: #1D0073;
+}
+
+h2 {
+  font-size: 48px;
+  font-family: "Roboto";
+}
+
+h3 {
+  font-size: 30px;
+  font-family: "Roboto";
+}
+
+h1, h2, h3 {
+  -webkit-margin-before: 0em;
+          margin-block-start: 0em;
+  -webkit-margin-after: 0em;
+          margin-block-end: 0em;
+}
+
+p {
+  font-size: 24px;
+  font-family: "Roboto";
+  line-height: 130%;
+}
+
+button {
+  border-radius: 10px;
+  width: 100%;
+  border: none;
+  font-family: "RobotoMedium";
+}
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
