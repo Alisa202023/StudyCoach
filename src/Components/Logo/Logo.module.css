@@ -1,0 +1,14 @@
+.logo {
+  font-family: "Spicy";
+  font-size: 36px;
+  white-space: nowrap;
+  margin-top: 10px;
+}
+
+.logoRed {
+  color: #7B0B2D;
+}
+
+.logoBlue {
+  color: #1D0073;
+}
